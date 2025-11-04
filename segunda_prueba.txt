@@ -1,2 +1,3 @@
 Reforzando conceptos
 línea de conflicto en main
+línea de conflicto en rama
