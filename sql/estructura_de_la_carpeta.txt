@@ -1,0 +1,2 @@
+En la carpeta scripts se almacenan los queries.
+En la carpeta db está la base tienda_ejemplo.db 
