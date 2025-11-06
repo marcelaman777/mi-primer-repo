@@ -1,0 +1,83 @@
+PS C:\Users\Defensor Penal 2\mi-primer-repo\sql\db> sqlite3 tienda_ejemplo_reestructurada.db
+SQLite version 3.48.0 2025-01-14 11:05:00
+Enter ".help" for usage hints.
+sqlite> .read ../scripts/esquema_reestructurado_y_datos.sql
+======================
+=== tabla clientes ===
+======================
+id  nombre           email             ciudad
+--  ---------------  ----------------  ---------
+1   Ana García       ana@email.com     Madrid
+2   Carlos López     carlos@email.com  Barcelona
+3   María Rodríguez  maria@email.com   Madrid
+
+=======================
+=== tabla productos ===
+=======================
+id  nombre            precio  categoria    stock
+--  ----------------  ------  -----------  -----
+1   Laptop Dell       1200.0  Electrónica  15
+2   Mouse Logitech    25.5    Accesorios   50
+3   Teclado Mecánico  89.99   Accesorios   30
+4   Monitor 24"       199.99  Electrónica  12
+5   Audífonos Sony    149.5   Audio        25
+
+======================
+=== tabla pedidos ===
+======================
+id  cliente_id  fecha_pedido  total
+--  ----------  ------------  ------
+1   1           2024-01-15    150.5
+2   1           2024-01-20    89.99
+3   2           2024-01-18    299.99
+sqlite> .schema clientes
+CREATE TABLE clientes (
+    id INTEGER PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    email TEXT UNIQUE,
+    ciudad TEXT
+);
+sqlite> .schema productos
+CREATE TABLE productos (
+    id INTEGER PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    precio REAL NOT NULL,
+    categoria TEXT,
+    stock INTEGER DEFAULT 0
+);
+sqlite> .schema pedidos
+CREATE TABLE pedidos (
+    id INTEGER PRIMARY KEY,
+    cliente_id INTEGER,
+    fecha_pedido DATE NOT NULL,
+    total REAL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+sqlite> .read ../scripts/consultas_con_joins.sql
+=============================================
+=== INNER JOIN: Solo clientes con pedidos ===
+=============================================
+nombre        fecha_pedido  total
+------------  ------------  ------
+Ana García    2024-01-15    150.5
+Ana García    2024-01-20    89.99
+Carlos López  2024-01-18    299.99
+
+=============================================================
+=== LEFT JOIN: Todos los clientes, con pedidos si existen ===
+=============================================================
+nombre           num_pedidos  total_compras
+---------------  -----------  -------------
+Ana García       2            240.49
+Carlos López     1            299.99
+María Rodríguez  0
+
+==========================================
+=== Clientes de Madrid con sus pedidos ===
+==========================================
+nombre           ciudad  fecha_pedido  total
+---------------  ------  ------------  -----
+Ana García       Madrid  2024-01-15    150.5
+Ana García       Madrid  2024-01-20    89.99
+María Rodríguez  Madrid
+sqlite>

@@ -1,3 +1,7 @@
-En la carpeta db está la base tienda_ejemplo.db 
+En la carpeta db están las bases:
+- tienda_ejemplo.db : base original con la que se trabajó los días 1 y 2.
+- tienda_ejemplo_reestructurada.db: base con la que se trabaja a partir del día 3 y que difiere de la base tienda_ejemplo.db en la definición de tipos de datos para los campos de las tablas y en la definición de campos para la tabla clientes.
+
 En la carpeta scripts se almacenan las queries.
-En la carpeta resultado_consultas se almacenan los resultados de la queries ejecutadas.
+
+En la carpeta resultado_consultas se almacenan los resultados de la queries ejecutadas a partir del segundo día.
