@@ -1,2 +1,3 @@
-En la carpeta scripts se almacenan los queries.
 En la carpeta db está la base tienda_ejemplo.db 
+En la carpeta scripts se almacenan las queries.
+En la carpeta resultado_consultas se almacenan los resultados de la queries ejecutadas.

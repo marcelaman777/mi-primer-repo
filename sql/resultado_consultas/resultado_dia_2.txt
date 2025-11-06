@@ -1,0 +1,93 @@
+PS C:\Users\Defensor Penal 2\mi-primer-repo\sql\db> sqlite3 tienda_ejemplo.db
+SQLite version 3.48.0 2025-01-14 11:05:00
+Enter ".help" for usage hints.
+sqlite> .read ../scripts/poblar_tabla_productos.sql
+sqlite> .schema productos
+CREATE TABLE productos (
+    id INTEGER PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    precio REAL NOT NULL,
+    categoria TEXT,
+    stock INTEGER DEFAULT 0
+);
+sqlite> select * from productos;
+1|Laptop Dell|1200.0|Electrónica|15
+2|Mouse Logitech|25.5|Accesorios|50
+3|Teclado Mecánico|89.99|Accesorios|30
+4|Monitor 24"|199.99|Electrónica|12
+5|Audífonos Sony|149.5|Audio|25
+sqlite> .read ../scripts/consultas_basicas_productos.sql
+========================================
+=== Productos con precio mayor a 100 ===
+========================================
+nombre          precio
+--------------  ------
+Laptop Dell     1200.0
+Monitor 24"     199.99
+Audífonos Sony  149.5
+
+===========================================================================
+=== Productos de categoría Electrónica ordenados por precio descendente ===
+===========================================================================
+nombre       precio  categoria
+-----------  ------  -----------
+Laptop Dell  1200.0  Electrónica
+Monitor 24"  199.99  Electrónica
+
+========================================================================
+=== Productos con stock entre 10 y 40 ordenados por stock ascendente ===
+========================================================================
+nombre            stock  precio
+----------------  -----  ------
+Monitor 24"       12     199.99
+Laptop Dell       15     1200.0
+Audífonos Sony    25     149.5
+Teclado Mecánico  30     89.99
+
+==========================================================================
+=== Productos que contienen "a" en el nombre ordenados alfabéticamente ===
+==========================================================================
+nombre            precio
+----------------  ------
+Audífonos Sony    149.5
+Laptop Dell       1200.0
+Teclado Mecánico  89.99
+sqlite> .read ../scripts/mas_consultas_basicas_productos.sql
+==============================================================================================================
+=== Productos en Audio o Electrónica con stock >= 10 ordenados por categoría ascendente, stock descendente ===
+==============================================================================================================
+categoria    nombre          stock
+-----------  --------------  -----
+Audio        Audífonos Sony  25
+Electrónica  Laptop Dell     15
+Electrónica  Monitor 24"     12
+
+====================================================================================================
+=== Productos con stock * precio >= 1500 ordenados por categoria ascendente y precio descendente ===
+====================================================================================================
+categoria    nombre            precio  stock  valor_stock
+-----------  ----------------  ------  -----  -----------
+Accesorios   Teclado Mecánico  89.99   30     2699.7
+Audio        Audífonos Sony    149.5   25     3737.5
+Electrónica  Laptop Dell       1200.0  15     18000.0
+Electrónica  Monitor 24"       199.99  12     2399.88
+
+==============================================================================================================================================
+=== Productos con LENGTH(nombre) * LENGTH(categoria) entre 120 y 180 ordenados por LENGTH(nombre) * LENGTH(categoria) y nombre ascendentes ===
+==============================================================================================================================================
+nombre            largo_nombre  categoria    largo_categoria  producto_largo
+----------------  ------------  -----------  ---------------  --------------
+Laptop Dell       11            Electrónica  11               121
+Monitor 24"       11            Electrónica  11               121
+Mouse Logitech    14            Accesorios   10               140
+Teclado Mecánico  16            Accesorios   10               160
+
+========================================================================================================================
+=== Productos que contienen "la" en el nombre o "d" en la categoria ordenados alfabéticamente por categoria y nombre ===
+========================================================================================================================
+nombre            categoria
+----------------  -----------
+Teclado Mecánico  Accesorios
+Audífonos Sony    Audio
+Laptop Dell       Electrónica
+sqlite>
