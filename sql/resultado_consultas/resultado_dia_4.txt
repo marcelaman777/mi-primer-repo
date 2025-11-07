@@ -1,0 +1,75 @@
+PS C:\Users\Defensor Penal 2\mi-primer-repo\sql\db> sqlite3 .\tienda_ejemplo_reestructurada.db
+SQLite version 3.48.0 2025-01-14 11:05:00
+Enter ".help" for usage hints.
+sqlite> .read ../scripts/crear_tabla_pedidos_y_poblar.sql
+sqlite> .schema detalle_pedidos
+CREATE TABLE detalle_pedidos (
+    id INTEGER PRIMARY KEY,
+    pedido_id INTEGER,
+    producto_id INTEGER,
+    cantidad INTEGER NOT NULL,
+    precio_unitario REAL NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+sqlite> .read ../scripts/consultas_agrupadas.sql
+===================================
+=== Ventas totales por producto ===
+===================================
+producto_id  total_vendido  ingresos_totales
+-----------  -------------  ----------------
+1            1              1200.0
+2            2              51.0
+3            1              89.99
+4            1              199.99
+5            1              149.5
+
+===============================
+=== Estadísticas por pedido ===
+===============================
+pedido_id  items_diferentes  cantidad_total  precio_promedio
+---------  ----------------  --------------  ---------------
+1          2                 3               612.75
+2          1                 1               89.99
+3          2                 2               174.745
+
+===================================================
+=== Productos con más de 1 unidad vendida total ===
+===================================================
+producto_id  total_vendido
+-----------  -------------
+2            2
+
+=====================================
+=== Pedidos con valor total > 150 ===
+=====================================
+pedido_id  valor_total
+---------  -----------
+1          1251.0
+3          349.49
+
+================================================
+=== Ventas por ciudad usando JOIN + GROUP BY (CONSULTA CON ERROR) ===
+================================================
+ciudad     num_pedidos  ingresos_ciudad
+---------  -----------  ---------------
+Barcelona  2            349.49
+Madrid     3            1340.99
+
+====================================================================
+=== Ventas por ciudad usando JOIN + GROUP BY (CONSULTA CORRECTA) ===
+====================================================================
+ciudad     num_pedidos  ingresos_ciudad
+---------  -----------  ---------------
+Barcelona  1            349.49
+Madrid     2            1340.99
+
+==============================================
+=== DISCREPANCIA EN VALOR TOTAL DEL PEDIDO ===
+==============================================
+id_pedido  total_segun_pedidos  total_segun_detalle_pedidos
+---------  -------------------  ---------------------------
+1          150.5                1251.0
+2          89.99                89.99
+3          299.99               349.49
+sqlite>
