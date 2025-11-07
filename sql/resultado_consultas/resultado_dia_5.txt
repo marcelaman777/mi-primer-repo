@@ -1,0 +1,63 @@
+PS C:\Users\Defensor Penal 2\mi-primer-repo\sql\db> sqlite3 .\tienda_ejemplo_reestructurada.db
+SQLite version 3.48.0 2025-01-14 11:05:00
+Enter ".help" for usage hints.
+sqlite> .tables
+clientes         detalle_pedidos  pedidos          productos
+sqlite> .read ../scripts/crear_poblar_tabla_categorias_actualizar_tabla_productos.sql
+sqlite> .tables
+categorias       detalle_pedidos  productos
+clientes         pedidos
+sqlite> .schema categorias
+CREATE TABLE categorias (
+    id INTEGER PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    descripcion TEXT
+);
+sqlite> select * from categorias;
+1|Electrónica|Productos electrónicos y tecnología
+2|Accesorios|Accesorios para computadoras
+3|Audio|Productos de audio y sonido
+sqlite> .read ../scripts/subconsultas.sql
+*******************************************
+********** Subconsultas en WHERE **********
+*******************************************
+
+----------------------------------------------------------
+--- Clientes que han comprado productos de Electrónica ---
+----------------------------------------------------------
+nombre        email
+------------  ----------------
+Ana García    ana@email.com
+Carlos López  carlos@email.com
+
+--------------------------------------------------------------------
+--- Productos con precio por encima del promedio de su categoría ---
+--------------------------------------------------------------------
+nombre            precio  categoria
+----------------  ------  -----------
+Laptop Dell       1200.0  Electrónica
+Teclado Mecánico  89.99   Accesorios
+
+**************************************************
+********** Subconsultas correlacionadas **********
+**************************************************
+
+---------------------------------------------------------
+--- Para cada cliente, mostrar su pedido más reciente ---
+---------------------------------------------------------
+nombre        fecha_pedido  total
+------------  ------------  ------
+Ana García    2024-01-20    89.99
+Carlos López  2024-01-18    299.99
+
+***********************************
+********** Uso de EXISTS **********
+***********************************
+
+--------------------------------------------------------------
+--- Clientes que tienen pedidos con productos caros (>200) ---
+--------------------------------------------------------------
+nombre      ciudad
+----------  ------
+Ana García  Madrid
+sqlite>
