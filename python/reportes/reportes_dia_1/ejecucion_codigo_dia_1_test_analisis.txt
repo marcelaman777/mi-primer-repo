@@ -1,0 +1,13 @@
+PS C:\Users\Defensor Penal 2\mi-primer-repo\python\scripts> python codigo_dia_1_test_analisis.py
+Estadísticas básicas:
+                x           y
+count  100.000000  100.000000
+mean     0.039746    0.066650
+std      1.047465    0.985729
+min     -3.240337   -2.230752
+25%     -0.627719   -0.475320
+50%      0.122965    0.186315
+75%      0.703578    0.736764
+max      2.865457    2.156439
+Gráfico guardado como primer_grafico.png
+PS C:\Users\Defensor Penal 2\mi-primer-repo\python\scripts>

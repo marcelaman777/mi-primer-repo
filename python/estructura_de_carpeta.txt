@@ -1,0 +1,11 @@
+Documentos en carpeta python:
+
+- En la carpeta scripts están los scripts (.py o .ipynb) nombrados con un breve título descriptivo y con el prefijo codigo_dia_x_ (con x de 1 a 5).
+
+- En la carpeta resultados hay cinco subcarpetas (denominadas resultados_dia_x con x de 1 a 5) en las que se encuentran las salidas de la ejecución de los correspondientes scripts. Dentro de las salidas hay, entre otros, imágenes, bases de datos y archivos.
+
+- En la carpeta reportes hay cinco subcarpetas (denominadas reportes_dia_x con de 1 a 5) en la que se almacenan los reportes de instalación o ejecución de código, como por ejemplo, salidas en Windows Terminal o captura de pantalla de Jupyter Notebooks o del PC.
+
+- "estructura_de_carpeta.txt" es este documento.
+
+
