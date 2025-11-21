@@ -1,5 +1,5 @@
 # Excluir la carpeta analisis_datos_env completa
-python/analisis_datos_env/
+analisis_datos_env/
 
 # Excluir la subcarpeta .ipynb_checkpoints en cualquier lugar
 **/.ipynb_checkpoints/
