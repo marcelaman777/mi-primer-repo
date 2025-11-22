@@ -13,3 +13,7 @@ __pycache__/
 env/
 venv/
 .venv/
+
+# Reejecución de scripts
+etl/resultados/resultados_dia_2/datos.xlsx
+etl/resultados/resultados_dia_2/ventas.db
