@@ -2,7 +2,7 @@ Documentos en carpeta etl:
 
 - En la carpeta scripts están los notebooks (.ipynb) nombrados con un breve título descriptivo y con el prefijo ejercicio_dia_x_ (con x de 1 a 5).
 
-- En la carpeta resultados está la subcarpeta resultados_dia_2 en la que se almacenan las salidas de la ejecución del script correspondiente al día 2, como por ejemplo, bases de datos, archivos csv, entre otros.
+- En la carpeta resultados está la subcarpeta resultados_dia_x (con x={2,4}) en la que se almacenan las salidas de la ejecución del script correspondiente al día x, como por ejemplo, bases de datos, archivos csv, entre otros.
 
 - En la carpeta imagenes hay capturas de pantalla de apoyo para los notebooks.
 
