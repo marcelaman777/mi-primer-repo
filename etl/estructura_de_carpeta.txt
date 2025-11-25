@@ -1,8 +1,17 @@
 Documentos en carpeta etl:
 
-- En la carpeta scripts están los notebooks (.ipynb) nombrados con un breve título descriptivo y con el prefijo ejercicio_dia_x_ (con x de 1 a 5).
+- En la carpeta scripts están los scripts (.ipynb o .py) nombrados con un breve título descriptivo y con el prefijo ejercicio_dia_x_ (con x de 1 a 5).
 
-- En la carpeta resultados está la subcarpeta resultados_dia_x (con x={2,4}) en la que se almacenan las salidas de la ejecución del script correspondiente al día x, como por ejemplo, bases de datos, archivos csv, entre otros.
+- En la carpeta resultados está la subcarpeta resultados_dia_x (con x={2,4,5}) en la que se almacenan las salidas de la ejecución del script correspondiente al día x, como por ejemplo, bases de datos, archivos csv, logs, entre otros.
+
+- El script "ejercicio_dia_5_etl_manejo_errores_logging_modificado.py" incluye los siguientes cambios con respecto al script de referencia dado en la actividad "ejercicio_dia_5_etl_manejo_errores_logging.py"):
+  * actualiza: self.metrics['processed'] = len(data), pues en el script original la métrica se definía pero no se actualizaba.
+  * actualiza: self.metrics['errors'] += 1 después de ocurrir una excepción y antes de propagarla hacia run_pipeline(), pues en el script original la métrica se definía pero no se actualizaba ni usaba. 
+  * simula problemas en las etapas de:
+    > extracción: dos intentos fallidos de extracción (warning),
+    > transformación: filas con datos nulos (warning), y
+    > carga: error fatal en carga a base de datos.
+  * la inserción de registros se hace manualmente con INSERT INTO en lugar de data.to_sql, debido a que to_sql de pandas no respeta las transacciones manuales de SQLite, ejecutando un autocommit que es muy difícil de revertir con rollback en caso de error.
 
 - En la carpeta imagenes hay capturas de pantalla de apoyo para los notebooks.
 

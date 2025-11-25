@@ -1,0 +1,16 @@
+2025-11-24 20:44:18,744 - etl_pipeline_modificado - INFO - === INICIANDO PIPELINE ETL ROBUSTO ===
+2025-11-24 20:44:18,745 - etl_pipeline_modificado - INFO - Intento de extracción #1
+2025-11-24 20:44:18,748 - etl_pipeline_modificado - WARNING - Intento #1 falló: Fallo simulado en extracción de datos
+2025-11-24 20:44:19,750 - etl_pipeline_modificado - INFO - Intento de extracción #2
+2025-11-24 20:44:19,752 - etl_pipeline_modificado - WARNING - Intento #2 falló: Fallo simulado en extracción de datos
+2025-11-24 20:44:20,822 - etl_pipeline_modificado - INFO - Intento de extracción #3
+2025-11-24 20:44:20,829 - etl_pipeline_modificado - INFO - Extracción exitosa: 100 registros
+2025-11-24 20:44:20,831 - etl_pipeline_modificado - INFO - Iniciando transformación
+2025-11-24 20:44:20,847 - etl_pipeline_modificado - WARNING - Valores nulos encontrados: {'valor': 10}
+2025-11-24 20:44:20,857 - etl_pipeline_modificado - INFO - Transformación exitosa: 100 -> 90 registros
+2025-11-24 20:44:20,858 - etl_pipeline_modificado - INFO - Iniciando carga a base de datos
+2025-11-24 20:44:20,879 - etl_pipeline_modificado - ERROR - Error en carga, ejecutando rollback: Fallo simulado en carga a base de datos
+2025-11-24 20:44:20,882 - etl_pipeline_modificado - ERROR - === PIPELINE ETL FALLÓ ===
+2025-11-24 20:44:20,883 - etl_pipeline_modificado - ERROR - Duración hasta fallo: 0 days 00:00:02.137339
+2025-11-24 20:44:20,883 - etl_pipeline_modificado - INFO - Errores encontrados: 1
+2025-11-24 20:44:20,887 - etl_pipeline_modificado - ERROR - Error: Fallo simulado en carga a base de datos
