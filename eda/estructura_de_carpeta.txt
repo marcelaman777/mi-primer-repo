@@ -1,0 +1,5 @@
+Documentos en carpeta eda:
+
+- En la carpeta scripts están los scripts (.ipynb) nombrados con un breve título descriptivo y con el prefijo codigo_dia_x_ (con x de 1 a 5).
+
+- "estructura_de_carpeta.txt" es este documento.
