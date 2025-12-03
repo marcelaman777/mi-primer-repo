@@ -2,6 +2,6 @@ Documentos en carpeta eda:
 
 - En la carpeta scripts están los scripts (.ipynb) nombrados con un breve título descriptivo y con el prefijo codigo_dia_x_ (con x de 1 a 5).
 
-- En la carpeta outputs está la subcarpeta outputs_dia_x (con x={3}) en la que se almacenan las salidas de la ejecución del script correspondiente al día x, como por ejemplo, imágenes de gráficos entre otros
+- En la carpeta outputs está la subcarpeta outputs_dia_x (con x={3, 4}) en la que se almacenan las salidas de la ejecución del script correspondiente al día x, como por ejemplo, imágenes de gráficos.
 
 - "estructura_de_carpeta.txt" es este documento.
