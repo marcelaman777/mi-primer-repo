@@ -1,0 +1,9 @@
+Documentos en carpeta visualizacion_datos:
+
+- En la carpeta scripts están los scripts (.ipynb) nombrados con un breve título descriptivo y con el prefijo codigo_dia_x_ (con x de 1 a 5).
+
+- En la carpeta "outputs" están las subcarpetas denominadas "outputs_dia_x" con x de 1 a 5) en las que se encuentran las salidas de la ejecución de los correspondientes scripts, como por ejemplo, imágenes de gráficos.
+
+- "estructura_de_carpeta.txt" es este documento.
+
+
